@@ -4,7 +4,7 @@ import './App.css';
 import React, { Component } from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
-import NewsItem from './components/NewsItem';
+//import NewsItem from './components/NewsItem';
 
 export default class App extends Component {
   render() {
@@ -12,7 +12,7 @@ export default class App extends Component {
       <div>
         <NavBar />
         <News />
-        <NewsItem />
+       
       </div>
     )
   }
