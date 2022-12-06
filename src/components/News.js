@@ -1,30 +1,83 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 //import PropTypes from 'prop-types'
-import NewsItem from './NewsItem'
+import NewsItem from "./NewsItem";
 
 export default class News extends Component {
- constructor(){
-  super()
-  console.log("hello i am constructor from news.js")
- }
+  articles=[{"source":{"id":null,"name":"NDTV News"},"author":null,"title":"Rahul Gandhi, Other Congress Leaders May Skip Winter Session: Sources - NDTV","description":"Mallikarjun Kharge, the Leader of the Opposition (LOP), is now the party's national president as well and Congress will have to decide on whether he will be allowed to continue with his role as LOP in view of the party's one-man-one-post policy","url":"https://www.ndtv.com/india-news/rahul-gandhi-other-key-congress-leaders-to-skip-winter-session-of-parliament-sources-3574075","urlToImage":"https://c.ndtvimg.com/2022-11/jf8sbtqg_rahul-gandhi-bharat-jodo-yatra-indore_625x300_28_November_22.jpg","publishedAt":"2022-12-03T04:27:06Z","content":"Rahul Gandhi is currently leading Congress party's Bharat Jodo Yatra\r\nNew Delhi: Former Congress president Rahul Gandhi and several other senior leaders of the party, including Jayram Ramesh and Digv… [+1794 chars]"},{"source":{"id":null,"name":"Livemint"},"author":"Alka Jain","title":"Pune man tests positive for Zika virus. Here's what symptoms he faced | Mint - Mint","description":"The patient came to Jahangir Hospital with fever, cough, joint pain, and fatigue on November 16.","url":"https://www.livemint.com/news/india/pune-man-tests-positive-for-zika-virus-here-s-what-symptoms-he-faced-11670039497716.html","urlToImage":"https://images.livemint.com/img/2022/12/03/600x338/zika_virus_1670040526525_1670040526670_1670040526670.jpg","publishedAt":"2022-12-03T04:14:32Z","content":"A 67-year-old man was found positive for the Zika virus in the Bavdhan area of Maharashtra's Pune district, said the health department on Friday. The infected man is a resident of Nashik and had come… [+1806 chars]"},{"source":{"id":null,"name":"Hindustan Times"},"author":"Manisha Koushik, Dr Prem Kumar Sharma","title":"Pisces Horoscope Today, December 3, 2022: A productive day - Hindustan Times","description":"Horoscope Today for December 3 to read the daily astrological prediction for Pisces. Some major responsibilities may come your way. | Horoscope","url":"https://www.hindustantimes.com/astrology/horoscope/pisces-horoscope-today-december-3-2022-a-productive-day-101670005360033.html","urlToImage":"https://images.hindustantimes.com/img/2022/12/02/1600x900/fishes-2686842_1920_1662126403928_1670005697736_1670005697736.jpg","publishedAt":"2022-12-03T03:33:00Z","content":"PISCES (Feb 20-Mar 20)\r\nIt seems to be an above average day for the Pisces natives. You may feel energetic and excited all day long. Daily Astrological Predictions says, some positive developments ar… [+2077 chars]"},{"source":{"id":null,"name":"NDTV News"},"author":null,"title":"After Row Over Remark On Bengalis, Actor Paresh Rawal Faces Police Case - NDTV","description":"Actor Paresh Rawal has landed in a huge controversy with his viral comments on Bengalis while campaigning in Gujarat for the ruling BJP.","url":"https://www.ndtv.com/india-news/gujarat-assembly-election-after-row-over-remark-on-bengalis-actor-paresh-rawal-faces-police-case-3574051","urlToImage":"https://c.ndtvimg.com/2022-12/dgbdtbto_paresh-rawal_625x300_02_December_22.jpg","publishedAt":"2022-12-03T03:24:26Z","content":"Paresh Rawal's comments on Bengalis has led to massive backlash in the state.\r\nKolkata: Actor Paresh Rawal has landed in a huge controversy with his viral comments on Bengalis while campaigning in Gu… [+2747 chars]"},{"source":{"id":null,"name":"Moneycontrol"},"author":"Moneycontrol News","title":"Moneycontrol Daily: Your Essential 7 - Moneycontrol","description":"A daily round-up of the most interesting articles to help jump-start the day.","url":"https://www.moneycontrol.com/news/business/moneycontrol-daily-your-essential-7-525-9642461.html","urlToImage":"https://images.moneycontrol.com/static-mcnews/2020/10/Coffee_8-770x433.jpg","publishedAt":"2022-12-03T02:47:46Z","content":null},{"source":{"id":null,"name":"NDTV News"},"author":null,"title":"\"I Carry India With Me Wherever I Go\": Google CEO Sundar Pichai - NDTV","description":"\"India is a part of me and I carry it with me wherever I go,\" Google and Alphabet CEO Sundar Pichai has said, as he received the prestigious Padma Bhushan award from the Indian envoy to the US.","url":"https://www.ndtv.com/india-news/i-carry-india-with-me-wherever-i-go-google-ceo-sundar-pichai-3573974","urlToImage":"https://c.ndtvimg.com/2022-12/1bein0sc_sundar-pichai-padma-bhushan_625x300_03_December_22.jpg","publishedAt":"2022-12-03T02:31:00Z","content":"\"India is a part of me,\" Sunday Pichai said after receiving Padma Bhushan award from Indian envoy in US.\r\nWashington: \"India is a part of me and I carry it with me wherever I go,\" Google and Alphabet… [+4195 chars]"},{"source":{"id":null,"name":"Cgtn.com"},"author":"CGTN,China Global Television Network","title":"NASA's Orion spacecraft begins journey back to Earth - CGTN","description":"NASA's Orion spacecraft has left its distant lunar orbit and is on its return journey back to Earth, according to NASA.","url":"https://news.cgtn.com/news/2022-12-03/NASA-s-Orion-spacecraft-begins-journey-back-to-Earth-1fsf3uz5DZm/index.html","urlToImage":"https://news.cgtn.com/news/2022-12-03/NASA-s-Orion-spacecraft-begins-journey-back-to-Earth-1fsf3uz5DZm/img/15cbc015462a4ed9acb91c20f4c6d3ed/15cbc015462a4ed9acb91c20f4c6d3ed-750.jpeg","publishedAt":"2022-12-03T02:16:43Z","content":"NASA's Orion spacecraft has left its distant lunar orbit and is on its return journey back to Earth, according to NASA.\r\nOrion conducted an engine burn on Thursday to propel the spacecraft out of its… [+662 chars]"},{"source":{"id":null,"name":"123telugu.com"},"author":null,"title":"Rajamouli wins prestigious award for RRR - 123telugu","description":"Telugu cinema news, Telugu Movies Updates, Latest Movie reviews in Telugu, Telugu cinema reviews, telugu movie reviews, Tollywood, Box office collections, Telugu Movie show times, Theater List, telugu cinema tickets","url":"https://www.123telugu.com/mnews/rajamouli-wins-prestigious-award-for-rrr.html","urlToImage":"https://www.123telugu.com/content/wp-content/themes/123telugu/images/logo.gif","publishedAt":"2022-12-03T01:30:00Z","content":"Rajamouli had been extensively touring the USA over the past few weeks as he pushed RRRs Oscars campaign. Fittingly, the film is making some noise amongst the international jury. \r\nThe latest news is… [+569 chars]"},{"source":{"id":"the-times-of-india","name":"The Times of India"},"author":"Agencies","title":"What will the Russian oil price cap do to markets like India, China - Economic Times","description":"The G-7 has mostly decided to stop its own imports of Russian crude so the move is aimed squarely at other big buyers such as China, India and Turkey. Those countries have not signed up, but the US hopes they will use the threshold as a bargaining chip.","url":"https://economictimes.indiatimes.com/industry/energy/oil-gas/what-will-the-russian-oil-price-cap-do-to-markets-like-india-china/articleshow/95951090.cms","urlToImage":"https://img.etimg.com/thumb/msid-95951087,width-1070,height-580,imgsize-20254,overlay-economictimes/photo.jpg","publishedAt":"2022-12-03T00:06:00Z","content":"The Group of Seven will impose a price cap on Russian oil thats well above where it now trades. If there was ever any doubt what the premise of the cap was, its now clear: the US and its allies want … [+5390 chars]"},{"source":{"id":null,"name":"The Indian Express"},"author":"Damini Nath","title":"V-P enters Collegium debate, recalls NJAC repeal: Never too late - The Indian Express","description":"Underlining the “primacy of the will of the people”, Jagdeep Dhankhar, who was addressing a gathering at the 8th Dr L M Singhvi Memorial Lecture in New Delhi, said “that power was undone” and “the world does not know of any such instance”.","url":"https://indianexpress.com/article/india/v-p-enters-collegium-debate-recalls-njac-repeal-never-too-late-8303333/","urlToImage":"https://images.indianexpress.com/2022/12/WhatsApp-Image-2022-12-03-at-06.44.51.jpeg","publishedAt":"2022-12-02T22:55:21Z","content":"Underlining the primacy of the will of the people, Dhankhar, who was addressing a gathering at the 8th Dr L M Singhvi Memorial Lecture in New Delhi, said that power was undone and the world does not … [+3638 chars]"},{"source":{"id":null,"name":"The Indian Express"},"author":"Shubhajit Roy","title":"As India's Russian oil imports rise, US envoy says it's a sovereign decision - The Indian Express","description":"‘Able to discuss issues we agree on, policies not always same’","url":"https://indianexpress.com/article/india/as-indias-russian-oil-imports-rise-us-envoy-says-its-a-sovereign-decision-8303321/","urlToImage":"https://images.indianexpress.com/2022/10/Elizabeth-Jones.jpg","publishedAt":"2022-12-02T22:40:51Z","content":"With India continuing to import oil from Russiaat discounted rates amid the war in Ukraine, the US envoy in New Delhi said Friday that while the goal of Washingtons policy is to reduce revenues to Ru… [+5651 chars]"},{"source":{"id":null,"name":"OilPrice.com"},"author":"Julianne Geiger","title":"India To Keep Purchasing Russian Oil After Sanctions Go Into Effect - OilPrice.com","description":"India said that it would continue to purchase Russian crude oil even after the embargo and price cap go into effect on December 5","url":"https://oilprice.com/Latest-Energy-News/World-News/India-To-Keep-Purchasing-Russian-Oil-After-Sanctions-Go-Into-Effect.html","urlToImage":"https://d32r1sh890xpii.cloudfront.net/news/718x300/2022-12-02_7vihyfurd2.jpg","publishedAt":"2022-12-02T22:30:00Z","content":"Uzbekistan has inaugurated a new…\r\nA spike in Covid cases…\r\nBy Julianne Geiger - Dec 02, 2022, 4:30 PM CSTIndia said that it would continue to purchase Russian crude oil even after the embargo and pr… [+1721 chars]"},{"source":{"id":null,"name":"NDTV News"},"author":"NDTV Sports Desk","title":"FIFA World Cup 2022 Group G, Cameroon vs Brazil And Switzerland vs Serbia Highlights: Switzerland Beat Serbia, Join Brazil In Round Of 16 From Group G - NDTV Sports","description":"FIFA World Cup 2022, Cameroon vs Brazil and Switzerland vs Serbia, Group G, Highlights: Brazil and Switzerland have qualified for the Round of 16","url":"https://sports.ndtv.com/fifa-world-cup-2022/fifa-world-cup-2022-cameroon-vs-brazil-switzerland-vs-serbia-football-live-score-updates-3573346","urlToImage":"https://c.ndtvimg.com/2022-12/8d0sp3p_remo-freuler_625x300_03_December_22.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=675","publishedAt":"2022-12-02T21:30:10Z","content":"FIFA World Cup 2022, Cameroon vs Brazil and Switzerland vs Serbia, Group G, Highlights:Switzerland beat Serbia 3-2 in an incident-packed match on Friday to set up a last-16 meeting with Cristiano Ron… [+464 chars]"},{"source":{"id":"google-news","name":"Google News"},"author":null,"title":"Asian surge in World Cup: South Korea stun Portugal, follow Japan to round of 16 - The Indian Express","description":null,"url":"https://news.google.com/__i/rss/rd/articles/CBMiiQFodHRwczovL2luZGlhbmV4cHJlc3MuY29tL2FydGljbGUvc3BvcnRzL2Zvb3RiYWxsL2FzaWFuLXN1cmdlLWluLXdvcmxkLWN1cC1zb3V0aC1rb3JlYS1zdHVuLXBvcnR1Z2FsLWZvbGxvdy1qYXBhbi10by1yb3VuZC1vZi0xNi04MzAzMzMxL9IBAA?oc=5","urlToImage":null,"publishedAt":"2022-12-02T20:25:34Z","content":null},{"source":{"id":null,"name":"The Tribune India"},"author":"The Tribune India","title":"'Kickin Keto Gummies' Reviews - Website Fact Check - Shocking \"Side Effects\" Exposed! - The Tribune India","description":"Are you searching for a simple, keto-friendly method to supplement your diet regimen? If so, you remain in luck! Kickin Keto Gummies are a delicious as well as convenient method to do simply that. These gummies are made with ACV (apple cider vinegar) as well …","url":"https://www.tribuneindia.com/news/brand-connect/kickin-keto-gummies-reviews-website-fact-check-shocking-side-effects-exposed-457064","urlToImage":"https://englishtribuneimages.blob.core.windows.net/gallary-content/2022/12/2022_12$largeimg_1325418780.png","publishedAt":"2022-12-02T19:38:00Z","content":"Are you searching for a simple, keto-friendly method to supplement your diet regimen? If so, you remain in luck! Kickin Keto Gummies are a delicious as well as convenient method to do simply that. Th… [+8984 chars]"},{"source":{"id":null,"name":"Patient.info"},"author":"Lydia Smith","title":"World AIDS Day: Where are we now with HIV? - Patient.info","description":"From a HIV vaccine to an implant to deliver medications, research into HIV treatments is gaining pace - Reviewed by a GP.","url":"https://patient.info/news-and-features/hiv-where-are-we-now","urlToImage":"https://medical.azureedge.net/images/88c5d675-facc-4ddd-bac4-7ab9b162e393.jpg","publishedAt":"2022-12-02T19:05:57Z","content":"Medical advancements have transformed our understanding of HIV since the early days of the epidemic in the 1980s Now, people with HIV can lead long, healthy lives, thanks to developments in preventio… [+5103 chars]"},{"source":{"id":null,"name":"India Today"},"author":"Supriya Bhardwaj","title":"Rahul Gandhi's lesson on 'Jai Siya Ram' to BJP, RSS - India Today","description":"Rahul Gandhi was addressing a rally in Madhya Pradesh as part of the Congress's Bharat Jodo Yatra.","url":"https://www.indiatoday.in/india/story/rahul-gandhis-lesson-on-jai-siya-ram-to-bjp-rss-2304683-2022-12-02","urlToImage":"https://akm-img-a-in.tosshub.com/indiatoday/images/story/202212/image_18-sixteen_nine.jpeg?VersionId=qAtXsyG4aWxWTNzwL9bEh0Oqsz7NKUN.","publishedAt":"2022-12-02T17:43:54Z","content":"By Supriya Bhardwaj: The RSS doesnt chant Jai Siya Ram or Jai Sita Ram because there is not a single woman in their organization, Rahul Gandhi said in Madhya Pradesh. It is not a comfortable gatherin… [+1764 chars]"},{"source":{"id":"the-times-of-india","name":"The Times of India"},"author":"ET Spotlight Special","title":"Asteroid's impact may have led to mysterious 'Mega Tsunami' on Mars, says report - Economic Times","description":"According to a recent report, an asteroids impact on Mars may have been the cause of the mysterious  Mega Tsunami.","url":"https://economictimes.indiatimes.com/news/international/us/asteroids-impact-may-have-led-to-mysterious-mega-tsunami-on-mars-says-report/articleshow/95946140.cms","urlToImage":"https://img.etimg.com/thumb/msid-95946134,width-1070,height-580,imgsize-1774,overlay-economictimes/photo.jpg","publishedAt":"2022-12-02T16:57:00Z","content":"Similar to about 66 million years ago when dinosaurs got wiped out from the Earth, scientists speculate that the same thing might have happened on Mars about 3.4 billion years ago.\r\nResearchers recen… [+2264 chars]"},{"source":{"id":"espn-cric-info","name":"ESPN Cric Info"},"author":"ESPNcricinfo staff","title":"Litton to lead Bangladesh in ODI series against India - ESPNcricinfo","description":"Regular captain Tamim Iqbal has pulled out of the series because of a groin injury","url":"https://www.espncricinfo.com/story/ban-vs-ind-odi-series-litton-das-to-captain-bangladesh-for-india-odis-in-tamim-iqbals-absence-1347851","urlToImage":"https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/348600/348654.6.jpg","publishedAt":"2022-12-02T15:53:45Z","content":"Litton Das has not captained Bangladesh in an ODI previously  •  Associated Press"},{"source":{"id":null,"name":"Koimoi"},"author":"Oshine Koul","title":"An Action Hero Box Office Day 1 (Early Trends): It’s A Word Of Mouth Play For Ayushmann Khurrana! - Koimoi","description":"An Action Hero Box Office Day 1 (Early Trends): Looks like, good word of mouth will help Ayushmann Khurrana starrer to grow. Read on","url":"https://www.koimoi.com/?p=942190","urlToImage":"https://static-koimoi.akamaized.net/wp-content/new-galleries/2022/12/an-action-hero-box-office-day-1-early-trends-ayushmann-khurrana-opens-below-expectations-01.jpg","publishedAt":"2022-12-02T15:39:01Z","content":"An Action Hero Box Office Day 1 (Early Trends): Ayushmann Khurrana Starrer To Grow On Word Of Mouth ( Photo Credit Movie Still )\r\nAn Action Hero Box Office Day 1 (Early Trends): After teasing fans wi… [+2100 chars]"}]
+  
+  constructor() {
+    super();
+   
+
+    this.state = {
+      articles: this.articles,
+      loading: false,
+      page:1
+    };
+  }
+  async componentDidMount() {
+    
+   
+    let url ="https://newsapi.org/v2/top-headlines?country=in&apiKey=449a63e58fb140048da33d4e735137d5&page=1&pageSize=20";
+    let data = await fetch(url);
+   
+    let parsedData =  await data.json();
+    
+    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
+  }
+  handleNextClick = async( ) => {
+    if(this.state.page + 1 > Math.ceil(this.state.totalResults/20)){
+
+    }
+    else{
+     let url =`https://newsapi.org/v2/top-headlines?country=in&apiKey=449a63e58fb140048da33d4e735137d5&page=${this.state.page+1}&pageSize=20`;
+    let data = await fetch(url);
+   
+    let parsedData =  await data.json();
+    
+    this.setState({ 
+      page: this.state.page + 1,
+      articles: parsedData.articles }); 
+    }
+    
+
+  }
+
+  handlePrevClick =async () => {
+    let url =`https://newsapi.org/v2/top-headlines?country=in&apiKey=449a63e58fb140048da33d4e735137d5&page=${this.state.page-1}&pageSize=20`;
+    let data = await fetch(url);
+   
+    let parsedData =  await data.json();
+    
+    this.setState({ 
+      page: this.state.page - 1,
+      articles: parsedData.articles 
+    });
+    
+  }
   render() {
     return (
-      
-       <div className='container my-3'>
-       <h2>Top Headlines - NewsMonk</h2>
-        <div className='row'>
-        <div className='col-md-4'>
-          <NewsItem title ="my title" description="my descrip" />
+      <div className="container my-3">
+        <h1>Top Headlines - NewsMonk</h1>
+        <div className="row">
+          {this.state.articles.map((element) => {
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title ? element.title : ""}
+                  description={element.description ? element.description : ""}
+                  imageUrl={element.urlToImage}
+                  newsUrl={element.url}
+                />
+              </div>
+            );
+          })}
         </div>
-        <div className='col-md-4'>
-        <NewsItem title ="my title" description="my descrip" />
+        <div className="container d-flex justify-content-between">
+        <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick} >Pervious</button>
+        <button type="button" className="btn btn-dark" onClick={this.handleNextClick} >Next</button>
         </div>
-        <div className='col-md-4'>
-        <NewsItem title ="my title" description="my descrip" />
-        </div>
-        </div>
-       </div>
-      
-    )
+      </div>
+    );
   }
 }
