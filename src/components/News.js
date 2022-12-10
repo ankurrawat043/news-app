@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Loading from "./Loading";
 import PropTypes from 'prop-types'
 import NewsItem from "./NewsItem";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default class News extends Component {
   static defaultProps={
@@ -19,12 +20,14 @@ export default class News extends Component {
 
     this.state = {
       articles: [],
-      loading: false,
+      loading: true,
       page: 1,
+      totalResults: 0,
     };
   }
   async updateNews(){
-    const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=449a63e58fb140048da33d4e735137d5&page=1&pageSize=${this.props.pageSize}`;
+    this.props.setProgress(0);
+    const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=449a63e58fb140048da33d4e735137d5&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading: true});
     let data = await fetch(url);
 
@@ -35,29 +38,48 @@ export default class News extends Component {
       totalResults: parsedData.totalResults,
       loading: false
     });
-
+    this.props.setProgress(100);
   }
   async componentDidMount() {
     this.updateNews();
   }
-  handleNextClick = async () => {
+  /*handleNextClick = async () => {
     
     this.setState({page: this.state.page + 1});
     this.updateNews();
-  };
+  };*/
 
-  handlePrevClick = async () => {
+  /*handlePrevClick = async () => {
   
     this.setState({page: this.state.page - 1});
     this.updateNews();
-  };
+  };*/
+  fetchMoreData = async () => {
+       
+    const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=449a63e58fb140048da33d4e735137d5&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+    this.setState({ page: this.state.page + 1});
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    this.setState({
+      articles: this.state.articles.concat(parsedData.articles),
+      totalResults: parsedData.totalResults,
+      
+    });
+  }
   render() {
     return (
-      <div className="container my-3">
-        <h1 className="text-center">Top Headlines - NewsMonk</h1>
+     <> 
+        <h1 className="text-center" style={{margin: '90px 35px 0 0'}} >Top Headlines - NewsMonk</h1>
        { this.state.loading && <Loading/>}
+       <InfiniteScroll
+          dataLength={this.state.articles.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.articles.length !== this.state.totalResults}
+          loader={<Loading/>}
+        >
+<div className="container my-3">
         <div className="row">
-          {!this.state.loading && this.state.articles.map((element) => {
+          { this.state.articles.map((element) => {
             return (
               <div className="col-md-4" key={element.url}>
                 <NewsItem
@@ -73,7 +95,10 @@ export default class News extends Component {
             );
           })}
         </div>
-        <div className="container d-flex justify-content-between">
+        </div>
+        </InfiniteScroll>
+
+       {/* <div className="container d-flex justify-content-between">
           <button
             disabled={this.state.page <= 1}
             type="button"
@@ -93,8 +118,8 @@ export default class News extends Component {
           >
             Next
           </button>
-        </div>
-      </div>
+        </div>*/}
+      </>
     );
   }
 }
